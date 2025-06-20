@@ -14,8 +14,8 @@ AddEventHandler("OnClientProcessUsercmds", function(event, playerid, cmds, numcm
     if viewAngles.x > 89 or viewAngles.x < -89 then
         ReplyToCommand(
             playerid,
-            "HvH",
-            "Exploit açtığınız için öldürüldünüz!"
+            "[HvH]",
+            "You have been killed due to exploit."
         )
 
         player:Kill()
