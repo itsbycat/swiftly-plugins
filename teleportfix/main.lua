@@ -11,7 +11,7 @@ AddEventHandler("OnClientProcessUsercmds", function(event, playerid, cmds, numcm
 
     if not viewAngles then return end
 
-    if viewAngles.x > 89 or viewAngles.x < -89 then
+    if viewAngles.x > 360 or viewAngles.x < -360 then
         ReplyToCommand(
             playerid,
             "[HvH]",
