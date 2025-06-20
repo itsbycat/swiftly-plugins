@@ -3,22 +3,24 @@ AddEventHandler("OnClientProcessUsercmds", function(event, playerid, cmds, numcm
 
     if not player or not player:IsValid() then return end
 
-    local pawn = player:CCSPlayerPawnBase()
-
-    if not pawn then return end
-
-    local viewAngles = pawn.EyeAngles
-
-    if not viewAngles then return end
-
-    if viewAngles.x > 360 or viewAngles.x < -360 then
-        ReplyToCommand(
-            playerid,
-            "[HvH]",
-            "You have been killed due to exploit."
-        )
-
-        player:Kill()
+    for i=1,numcmds do
+        if cmds[i]:HasField("base") then
+            local baseusermessagepb = cmds[i]:GetMessage("base")
+            if baseusermessagepb:HasField("viewangles") then
+                local viewAngles = baseusermessagepb:GetQAngle("viewangles")
+            
+                if viewAngles.x > 360 or viewAngles.x < -360 then
+                    ReplyToCommand(
+                        playerid,
+                        "[HvH]",
+                        "You have been killed due to exploit."
+                    )
+            
+                    player:Kill()
+                    return
+                end
+            end
+        end
     end
 
     return EventResult.Continue
