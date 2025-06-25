@@ -1,6 +1,4 @@
 AddEventHandler("OnRoundStart", function(event)
-    --m_totalRoundsPlayed
-
     gameRules = GetCCSGameRules()
 
     map = server:GetMap()
