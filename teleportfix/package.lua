@@ -1,6 +1,6 @@
 local configuration = {
     GetPluginAuthor = "ByCat",
-    GetPluginVersion = "1.0.1",
+    GetPluginVersion = "1.1.0",
     GetPluginName = "Teleport Fix",
     GetPluginWebsite = "https://bycat.one"
 }
