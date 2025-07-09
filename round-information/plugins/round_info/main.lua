@@ -23,10 +23,10 @@ AddEventHandler("OnRoundStart", function(event)
 
     if totalPlayers == 0 then return end
 
-    playermanager:SendMsg(
-        MessageType.Chat,
-        FetchTranslation("RoundInfo.msg"):gsub("{MAP_NAME}", map):gsub("{CURRENT_ROUND}", round):gsub("{ONLINE_PLAYER_COUNT}", totalPlayers):gsub("{MAX_PLAYER_COUNT}", maxPlayers)
-    )
+    chat_message = FetchTranslation("RoundInfo.msg"):gsub("{MAP_NAME}", map):gsub("{CURRENT_ROUND}", round):gsub("{ONLINE_PLAYER_COUNT}", totalPlayers):gsub("{MAX_PLAYER_COUNT}", maxPlayers)
+
+    playermanager:SendMsg(MessageType.Chat, chat_message)
+    print(chat_message)
 
     return EventResult.Continue
 end)
